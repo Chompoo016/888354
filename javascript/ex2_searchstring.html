@@ -1,0 +1,54 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <center>
+        <h2>Ex2 - Search String Non Sensitive Case</h2>
+        <hr>
+        <h4>Text Input : <textarea id="txtArea"></textarea>
+        <br><br>
+        Sensitive Case : <input type="radio" value="1" name="radio">Yes <input type="radio" value="2" name="radio">No
+        <br><br>
+        Search : <input type="text" id="txtSearch">
+        <br><br>
+        <button onclick="searchString()">search</button>
+        <br><br>
+        Result for Search : <div id="result"></div></h4>
+    </center>
+	
+	<script type="text/javascript">
+        function searchString(){
+            var txt_area = document.getElementById('txtArea').value;
+            var txt_search = document.getElementById('txtSearch').value;
+			var rad = document.querySelector('input[type="radio"]:checked').value;
+            if (rad == "1") {
+				var sub_string = txt_area.split(" ");
+				var j = 0;
+				var num = 0;
+				while (sub_string[j] != null) {
+					if (sub_string[j] == txt_search) {
+					  num++;
+					}
+					j++;
+				}
+				document.getElementById("result").innerHTML = num;
+			 }else {
+				var uninput = txt_area.toUpperCase();
+				var unsearch = txt_search.toUpperCase();
+				var sub_string = uninput.split(" ");
+				var j = 0;
+				var num = 0;
+				while (sub_string[j] != null) {
+					if (sub_string[j] == unsearch) {
+					  num++;
+					}
+					j++;
+				}
+				document.getElementById("result").innerHTML = num;
+			} 
+            
+        }
+    </script>
+</body>
+</html>
